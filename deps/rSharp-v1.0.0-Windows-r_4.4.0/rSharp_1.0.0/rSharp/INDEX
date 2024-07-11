@@ -1,0 +1,45 @@
+.clrTypeNameExtPtr      Gets the type name of an object
+.getCurrentConvertedObject
+                        System function to get a direct access to an
+                        object
+.mkClrObjRef            Create if possible an S4 'cobjRef' object.
+NetObject               NetObject
+callStatic              Call a static method on a .NET type
+castToRObject           Create if possible an object of the R6 class
+                        'NetObject'
+getConstructors         List the public constructors of a CLR Type
+getEnumNames            Gets the names of a .NET Enum value type
+getLoadedAssemblies     List the names of loaded assemblies
+getRSharpSetting        getRSharpSetting
+getSexpType             Get the type code for a SEXP
+getStatic               Gets the value of a static field or property of
+                        a class
+getStaticFields         Gets the static fields for a type
+getStaticMemberSignature
+                        Gets the signature of a static member of a type
+getStaticMembers        Gets the static members for a type
+getStaticMethods        Gets the static methods for a type
+getStaticProperties     Gets the static properties for a type
+getType                 Gets the pointer to the 'System.RuntimeType' of
+                        a 'NetObject' object or a .NET type name.
+getTypesInAssembly      Get a list of .NET type names exported by an
+                        assembly
+inspectArgs             Peek into the structure of R objects 'as seen
+                        from C code'
+isAssemblyLoaded        Is the assembly loaded?
+loadAssembly            Loads a .NET assembly.
+newObjectFromName       Create a new NetObject R6 object given the type
+                        name.
+newPointerFromName      Create a new external pointer to a .NET object
+                        given the type name.
+printTraceback          Prints the last .NET exception
+rSharpSettingNames      Names of the settings stored in rSharpEnv Can
+                        be used with 'getRSharpSetting()'
+rToDotNetType           Gets the type of a .NET object resulting from
+                        converting an R object
+setConvertAdvancedTypes
+                        Turn on/off the conversion of advanced data
+                        types with R.NET
+setStatic               Sets the value of a field or property of an
+                        object or class
+toStringNET             Calls the ToString method of an object

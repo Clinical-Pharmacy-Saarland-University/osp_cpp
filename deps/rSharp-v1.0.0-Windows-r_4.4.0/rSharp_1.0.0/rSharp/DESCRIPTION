@@ -1,0 +1,48 @@
+Package: rSharp
+Type: Package
+Title: Accessing .NET from R
+Version: 1.0.0
+Authors@R: c(person(given = "Open-Systems-Pharmacology Community",
+             role = "cph"),
+      person("esqLABS GmbH", role = "fnd"),
+      person(given = "Pavel",
+             family = "Balazki",
+             role = c("aut", "cre"),
+             email = "pavel.balazki@gmail.com"),
+      person(given = "Juri",
+             family = "Solodenko",
+             role = "aut",
+             comment = c(ORCID = "0000-0001-6922-588X")),
+      person(given = "Michael",
+             family = "Sevestre",
+             role = c("aut"),
+             email = "michael@design2code.ca"),
+      person(given = "Robert",
+             family = "McIntosh",
+             role = c("aut")),
+      person(given = "Ian Peter",
+             family = "Du",
+             role = c("aut")),
+     person("Jean-Michel", "Perraud", email =
+    "jean-michel.perraud@csiro.au", role = "aut"))
+Description: Enable low-level access to .NET runtime from R. Provides a set of functions to create and manipulate .NET objects, call methods, and access properties and fields.
+URL: https://github.com/Open-Systems-Pharmacology/rsharp/,
+        http://www.open-systems-pharmacology.org/rSharp/
+Encoding: UTF-8
+Depends: R (>= 4.1)
+Imports: R6, methods
+Suggests: devtools, covr, testthat (>= 3.0.0), knitr, rmarkdown
+License: file LICENSE
+RoxygenNote: 7.3.1
+VignetteBuilder: knitr
+Config/testthat/edition: 3
+Author: Open-Systems-Pharmacology Community [cph],
+  esqLABS GmbH [fnd],
+  Pavel Balazki [aut, cre],
+  Juri Solodenko [aut] (<https://orcid.org/0000-0001-6922-588X>),
+  Michael Sevestre [aut],
+  Robert McIntosh [aut],
+  Ian Peter Du [aut],
+  Jean-Michel Perraud [aut]
+Maintainer: Pavel Balazki <pavel.balazki@gmail.com>
+Built: R 4.4.0; ; 2024-05-15 16:01:31 UTC; windows
