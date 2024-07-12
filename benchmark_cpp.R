@@ -4,7 +4,7 @@ library(tictoc)
 
 sim_files <- list.files("sims", pattern = ".pkml", full.names = TRUE) |>
   rev()
-sim_files <- sim_files[[1]]
+sim_files <- sim_files
 benchmark_file <- "benchmark_cpp.csv"
 wd <- getwd()
 
@@ -44,5 +44,5 @@ for (sim in sim_files) {
     time_cpp = unname(x$toc),
     time_osp = unname(y$toc)
   ) |>
-    write.table(append = TRUE, file = benchmark_file, row.names = FALSE)
+    write.table(append = TRUE, file = benchmark_file, row.names = FALSE, col.names = FALSE)
 }
