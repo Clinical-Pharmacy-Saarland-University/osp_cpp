@@ -4,22 +4,25 @@ library(tictoc)
 
 sim_files <- list.files("sims", pattern = ".pkml", full.names = TRUE) |>
   rev()
+sim_files <- sim_files[[1]]
 benchmark_file <- "benchmark_cpp.csv"
+wd <- getwd()
+
+param_path <- c("Voriconazole-CYP2C19-Bhara et al 2011|kcat")
+param_vals <- c(2)
+observer_path <- "Organism|PeripheralVenousBlood|Voriconazole|Plasma (Peripheral Venous Blood)"
 
 for (sim in sim_files) {
   simulation <- loadSimulation(sim)
+  clearOutputs(simulation)
+  addOutputs(c(observer_path), simulation = simulation)
 
   run_id <- floor(runif(1, min = 0, max = 1000))
   run_name <- paste0("run_", run_id)
 
-  param_path <- c("Organism|Height")
   sim_batch_opts <- SimulationBatchOptions$new(
     variableParameters = param_path
   )
-
-  sim_vals <- c(18)
-
-  wd <- getwd()
 
   exportSimulationCpp(simulation, sim_batch_opts, run_name, wd)
   cpp_path <- file.path(wd, paste0(run_name, ".cpp"))
@@ -29,14 +32,11 @@ for (sim in sim_files) {
   sim_compiled <- SimulationCompiled$new(run_name)
 
   tic(msg = "Simulation time (Cpp)")
-  res <- sim_vals |>
-    sapply(\(x) {
-      sim_compiled$run(parameter = x)
-    })
+  res_compiled <- sim_compiled$run(parameter = param_vals)
   x <- toc()
 
   tic(msg = "Simulation time (ospsuite batch)")
-  res_batch <- runSimulations(simulation)
+  res <- runSimulations(simulation)
   y <- toc()
 
   df <- data.frame(
@@ -44,5 +44,5 @@ for (sim in sim_files) {
     time_cpp = unname(x$toc),
     time_osp = unname(y$toc)
   ) |>
-    write.csv(append = TRUE, file = benchmark_file)
+    write.table(append = TRUE, file = benchmark_file, row.names = FALSE)
 }
